@@ -1,0 +1,18 @@
+<h1>Welcome to CMS - Sign Up!</h1>
+
+<section class="UserForm">
+  <%= form_with url: users_path, method: :post do |form| %>
+    <p>First Name</p>
+    <%= form.text_field :first_name %>
+
+    <p>Last Name</p>
+    <%= form.text_field :last_name %>
+
+    <p>Email</p>
+    <%= form.email_field :email %>
+
+    <p>Password</p>
+    <%= form.password_field :password %>
+    <br>
+    <%= submit_tag "Sign Up" %>
+  <% end %>

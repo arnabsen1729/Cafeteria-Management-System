@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-  def index
-    render plain: "users"
-  end
+  skip_before_action :ensure_logged_in
 
   def new
     render "users/new"
@@ -17,10 +15,11 @@ class UsersController < ApplicationController
     )
 
     if new_user.save
-      redirect_to "/"
+      sessions[:current_user_id] = new_user.current_user_id
+      redirect_to dashboard_path
     else
       flash[:error] = new_user.errors.full_messages.join(", ")
-      redirect_to "/"
+      redirect_to new_user_path
     end
   end
 end

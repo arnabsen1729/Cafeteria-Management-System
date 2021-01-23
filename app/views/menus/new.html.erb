@@ -1,0 +1,24 @@
+<section class="container mt-5 mb-5">
+  <div class="text-center">
+    <img class="mb-4" src="<%= asset_path(" icon.svg") %>" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Create new items for menu</h1>
+  </div>
+  <div class="col-lg-5 col-md-8 mx-auto">
+    <%= form_with url: menuitems_path, method: :post do |form| %>
+      <p class="text-muted mt-1 mb-0">Item Name</p>
+      <%= form.text_field :name, class: "form-control" %>
+        <p class="text-muted mt-1 mb-0">Description</p>
+        <%= form.text_area :description, class: "form-control" %>
+          <p class="text-muted mt-1 mb-0">Price</p>
+          <%= form.text_field :price, class: "form-control" %>
+            <p class="text-muted mt-1 mb-0">Menu Id</p>
+            <%= form.number_field :menu_id, class: "form-control" %>
+              <p class="text-muted mt-1 mb-0">Image</p>
+              <%= form.file_field :image, class: "form-control" %>
+                <br>
+                <div>
+                  <%= submit_tag "+ Add Menu Items" , class: "btn btn-md btn-success btn-block" %>
+                </div>
+                <% end %>
+  </div>
+</section>

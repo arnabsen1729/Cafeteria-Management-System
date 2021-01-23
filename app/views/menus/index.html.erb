@@ -1,0 +1,36 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Admin", "/" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Menus</li>
+  </ol>
+</nav>
+<section class="container mt-4 mb-5">
+  <div>
+    <h3 class="h3 mb-3 font-weight-normal">Menus </h3>
+  </div>
+  <table class="table text-center">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col text-center"> Id </th>
+        <th scope="col"> Menu Name </th>
+        <th scope="col"> Items </th>
+        <th scope="col"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Menu.order(:name).map do |menu| %>
+        <tr>
+          <td scope="row"> <%= menu.id %> </td>
+          <td> <%= menu.name %> </td>
+          <td> <%= menu.menu_items.count %> </td>
+          <td>
+            <%= form_with url: menu_path(menu.id), method: :delete do %>
+              <a class="mr-3" href="<%= menu_path(menu.id) %>"><img src=<%= asset_path("icons/edit.svg") %> class="edit-btn" alt="Edit"></a>
+              <%= image_submit_tag(asset_path("icons/delete.svg"), class: "delete-btn", data: { confirm: "Are you sure want to delete this record ?" }) %>
+            <% end %>
+          </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

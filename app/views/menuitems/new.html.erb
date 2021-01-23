@@ -12,7 +12,11 @@
       <p class="text-muted mt-1 mb-0">Price</p>
       <%= form.text_field :price, class: "form-control" %>
       <p class="text-muted mt-1 mb-0">Menu Id</p>
-      <%= form.number_field :menu_id, class: "form-control" %>
+      <% if @menu_id %>
+        <%= form.number_field :menu_id, class: "form-control", value: @menu_id, readonly: true %>
+      <% else %>
+        <%= form.number_field :menu_id, class: "form-control" %>
+      <% end %>
       <p class="text-muted mt-1 mb-0">Image</p>
       <%= form.file_field :image, class: "form-control" %>
       <br>

@@ -11,7 +11,6 @@
   </head>
 
   <body>
-  header
     <div>
       <% if flash[:error] %>
         <h3 class="error"><%= flash[:error] %></h3>
@@ -21,6 +20,7 @@
     <div>
       <% if @current_user %>
         <h1><%= @current_user.first_name %></h1>
+        <%= link_to "Sign-Out", destroy_session_path, method: :delete %>
       <% end %>
     </div>
   </body>

@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get "/manage/menus" => "manage#menus"
   get "/manage/reports" => "manage#reports"
 
+  post "/users/add" => "users#add", as: :add_user
   resources :users
 end

@@ -1,0 +1,55 @@
+<section>
+  <h2 class="mx-4 mt-3">Manage Users</h2>
+
+  <div class="mx-4 my-1">
+    <%= form_with url: add_user_path, method: :post do |form| %>
+      <div class="d-flex">
+        <%= form.text_field :first_name, class: "form-control form-control-sm mx-1", placeholder: "First Name" %>
+        <%= form.text_field :last_name, class: "form-control form-control-sm mx-1", placeholder: "Last Name" %>
+        <%= form.email_field :email, class: "form-control form-control-sm mx-1", placeholder: "Email" %>
+        <%= form.password_field :password, class: "form-control form-control-sm mx-1", placeholder: "Password" %>
+        <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], "clerk"), class: "form-select form-select-sm mx-1" %>
+        <div>
+          <%= submit_tag "+ Add a new record", class: "btn btn-sm btn-success btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="mx-4 my-3">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col text-center"> Id </th>
+          <th scope="col"> First Name </th>
+          <th scope="col"> Last Name </th>
+          <th scope="col"> Email </th>
+          <th scope="col"> Role </th>
+          <th scope="col"> Delete </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% User.order(:role).map do |user| %>
+          <tr>
+            <td scope="row"> <%= user.id %> </td>
+            <td> <%= user.first_name %> </td>
+            <td> <%= user.last_name %> </td>
+            <td> <%= user.email %> </td>
+            <td>
+              <%= form_with url: "/users/#{user.id}", method: :put do %>
+                <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], user.role), class: "form-select form-select-sm", onChange: "this.form.submit();" %>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= form_with url: "/users/#{user.id}", method: :delete do %>
+                <%= image_submit_tag(asset_path("icons/delete.svg"), class: "delete-btn", data: { confirm: "Are you sure want to delete this record ?" }) %>
+              <% end %>
+            </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

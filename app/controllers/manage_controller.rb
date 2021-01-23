@@ -2,7 +2,7 @@ class ManageController < ApplicationController
   before_action :ensure_owner
 
   def users
-    render plain: "Mange Users"
+    render "manage/users"
   end
 
   def menus

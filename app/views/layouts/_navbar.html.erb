@@ -1,0 +1,45 @@
+<div>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="<%= asset_path("icon.svg") %>" width="30" height="30" class="mx-2 d-inline-block align-top" alt="">
+      Cafeteria Management System
+    </a>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="/dashboard" class="nav-link waves-effect">
+            Shop
+          </a>
+        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <a href="#!" class="nav-link navbar-link-2 waves-effect">
+              <span class="badge badge-pill badge-primary">1</span>
+              <img src="<%= asset_path("icons/cart.svg") %>" width="20" height="20" class="d-inline-block align-center" alt=""></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/users/new" class="nav-link waves-effect">
+              <%= current_user.first_name %>
+            </a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Out", destroy_session_path, method: :delete, class: "nav-link waves-effect" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/users/new" class="nav-link waves-effect">
+              Sign Up
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/signin" class="btn btn-primary waves-effect">
+              Sign In
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>

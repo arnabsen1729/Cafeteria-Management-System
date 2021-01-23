@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 128 128" version="1.0">
+  <g id="layer1" stroke="#000" transform="translate(-66.38 -391.32)">
+    <path id="path7583" stroke-linejoin="round" d="m82.38 439.32h80c0 24-3.16 40-24 56h-32c-19.691-14.07-24-32-24-56z" fill-rule="evenodd" stroke-width="6" fill="#c87137"/>
+    <path id="path7585" stroke-linejoin="round" d="m74.38 487.32h96.34c-8.34 8-8.34 12.66-28.91 15.65h-38.53c-20.9-2.45-20.9-7.65-28.9-15.65z" fill-rule="evenodd" stroke-width="6" fill="#c87137"/>
+    <path id="path7589" stroke-linejoin="round" d="m116.09 67.721a13.643 18.109 0 1 1 -27.284 0 13.643 18.109 0 1 1 27.284 0z" transform="matrix(.94651 .32267 -.32267 .94651 100.16 363.38)" stroke-linecap="round" stroke-width="6" fill="none"/>
+    <path id="path7593" d="m47.628 7.4419c15.257 15.917-14.094 16.96 0 33.24" transform="translate(66.38 391.32)" stroke-linecap="round" stroke-width="4" fill="none"/>
+    <path id="path7595" stroke-width="4" stroke-linecap="round" fill="none" d="m123.93 399.26c15.26 15.92-14.09 16.96 0 33.24"/>
+    <path id="path7597" stroke-width="4" stroke-linecap="round" fill="none" d="m134.85 399.26c15.25 15.92-14.1 16.96 0 33.24"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Coffee cup icon</dc:title>
+        <dc:date>2009-03-15T15:02:26</dc:date>
+        <dc:description>A cup of tea or coffee with thick black contour.</dc:description>
+        <dc:source>http://openclipart.org/detail/22305/coffee-cup-icon-by-pitr-22305</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>pitr</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>beverage</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>coffee</rdf:li>
+            <rdf:li>cup</rdf:li>
+            <rdf:li>drink</rdf:li>
+            <rdf:li>food</rdf:li>
+            <rdf:li>household</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>minimalistic</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>svg</rdf:li>
+            <rdf:li>tea</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

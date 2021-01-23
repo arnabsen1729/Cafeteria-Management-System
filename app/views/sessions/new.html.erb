@@ -1,13 +1,20 @@
-<h1>Sign In</h1>
+<section class="container mt-5 mb-5">
+  <div class="text-center">
+    <img class="mb-4" src="<%= asset_path("icon.svg") %>" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+  </div>
+  <div class="col-lg-5 col-md-8 mx-auto">
+    <%= form_with url: sessions_path, method: :post do |form| %>
+      <p class="text-muted mt-1 mb-0">Email Address</p>
+      <%= form.email_field :email, class: "form-control" %>
 
-<section class="UserForm">
-  <%= form_with url: sessions_path, method: :post do |form| %>
-    <p>Email</p>
-    <%= form.email_field :email %>
+      <p class="text-muted mt-1 mb-0">Password</p>
+      <%= form.password_field :password, class: "form-control" %>
+      <br>
 
-    <p>Password</p>
-    <%= form.password_field :password %>
-    <br>
-    <%= submit_tag "Sign In" %>
-  <% end %>
+      <div>
+        <%= submit_tag "Sign In", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>
 </section>

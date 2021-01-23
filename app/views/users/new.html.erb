@@ -1,19 +1,26 @@
-<h1>Welcome to CMS - Sign Up!</h1>
+<section class="container mt-5 mb-5">
+  <div class="text-center">
+    <img class="mb-4" src="<%= asset_path("icon.svg") %>" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please fill your details</h1>
+  </div>
+  <div class="col-lg-5 col-md-8 mx-auto">
+    <%= form_with url: users_path, method: :post do |form| %>
+      <p class="text-muted mt-1 mb-0">First Name</p>
+      <%= form.text_field :first_name, class: "form-control" %>
 
-<section class="UserForm">
-  <%= form_with url: users_path, method: :post do |form| %>
-    <p>First Name</p>
-    <%= form.text_field :first_name %>
+      <p class="text-muted mt-1 mb-0">Last Name</p>
+      <%= form.text_field :last_name, class: "form-control" %>
 
-    <p>Last Name</p>
-    <%= form.text_field :last_name %>
+      <p class="text-muted mt-1 mb-0">Email Address</p>
+      <%= form.email_field :email, class: "form-control" %>
 
-    <p>Email</p>
-    <%= form.email_field :email %>
+      <p class="text-muted mt-1 mb-0">Password</p>
+      <%= form.password_field :password, class: "form-control" %>
+      <br>
 
-    <p>Password</p>
-    <%= form.password_field :password %>
-    <br>
-    <%= submit_tag "Sign Up" %>
-  <% end %>
+      <div>
+        <%= submit_tag "Sign Up", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+    <% end %>
+  </div>
 </section>

@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   post "/users/add" => "users#add", as: :add_user
   resources :users
+  resources :menuitems
 end

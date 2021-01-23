@@ -6,7 +6,7 @@ class ManageController < ApplicationController
   end
 
   def menus
-    render plain: "Manage Menus"
+    render "manage/menus"
   end
 
   def reports

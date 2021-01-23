@@ -1,0 +1,13 @@
+<h1>Menu Items</h1>
+
+<div>
+  <% MenuItem.all.map do |item| %>
+    <div>
+      <%= item.id %>
+      <%= item.name %>
+      <%= image_tag item.image %>
+    </div>
+    <br>
+    <br>
+  <% end %>
+</div>

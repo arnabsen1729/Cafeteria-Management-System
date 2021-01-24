@@ -27,6 +27,10 @@ class Cart < ApplicationRecord
     items_hash
   end
 
+  def self.get_price(items)
+    items.map { |item| item[:qty] * item[:price] }.sum
+  end
+
   def self.remove_item(session_arr, item_id)
     session_arr.delete(item_id.to_i)
     session_arr

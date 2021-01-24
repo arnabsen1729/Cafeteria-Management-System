@@ -13,10 +13,27 @@
   <body>
 
     <% # Navbar %>
-    <%= render :partial => "layouts/navbar", :locals => { :current_user => @current_user } %>
-    <div>
+    <% if @current_user %>
+      <% if @current_user.role == "owner" %>
+        <%= render :partial => "layouts/headers/admin-navbar", :locals => { :current_user => @current_user } %>
+      <% elsif @current_user.role == "clerk" %>
+        <%= render :partial => "layouts/headers/navbar", :locals => { :current_user => @current_user } %>
+      <% else %>
+        <%= render :partial => "layouts/headers/user-navbar", :locals => { :current_user => @current_user } %>
+      <% end %>
+    <% else %>
+      <%= render :partial => "layouts/headers/navbar" %>
+    <% end %>
+
+
+    <div class="text-center">
       <% if flash[:error] %>
-        <h3 class="error"><%= flash[:error] %></h3>
+        <div class="mt-2 mx-auto col-lg-4 alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Oops !!</strong> <%= flash[:error] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
       <% end %>
     </div>
     <%= yield %>

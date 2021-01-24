@@ -1,32 +1,60 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Shop", "/shop" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+  </ol>
+</nav>
+
 <section class="container mt-4 mb-2">
+  <h3><%= @first_name %>'s Cart :</h3>
+  <div class="col-lg-4 mx-auto text-center">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row"> Total Items </th>
+          <td> <%= @total_items %> </th>
+        </tr>
+        <tr class="bg-success text-white">
+          <th scope="row">Total Price</td>
+          <td>$ <%= @total_price %></td>
+        </tr>
+      </thead>
+
+    </table>
+    <p class="btn btn-primary btn-md ml-auto">
+      <span class="text-reset text-decoration-none"><%= link_to "Place Your Order", "/", method: :delete, class: "text-white text-decoration-none" %></span>
+    </p>
+  </div>
+  <h4>Cart Items :</h4>
   <div>
     <table class="table text-center table-hover">
-    <thead class="table-dark">
-      <tr>
-        <th scope="col"> Item Name </th>
-        <th scope="col"> Quantity </th>
-        <th scope="col"> Price per item </th>
-        <th scope="col"> Price </th>
-        <th scope="col"> Actions </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cart_items.map do |item| %>
+      <thead class="table-dark">
         <tr>
-          <td scope="row"> <%= item[:name] %> </td>
-          <td> <%= item[:qty] %> </td>
-          <td> <%= item[:price] %> </td>
-          <td> <%= item[:qty] * item[:price] %> </td>
-          <td>
-            <%= form_with url: cart_path(item[:id]), method: :delete do %>
-              <%= image_submit_tag(asset_path("icons/delete.svg"),
-                                   class: "delete-btn",
-                                   data: { confirm: "Are you sure want to delete this item ?" }) %>
-            <% end %>
-          </td>
+          <th scope="col"> Item Name </th>
+          <th scope="col"> Quantity </th>
+          <th scope="col"> Price per item </th>
+          <th scope="col"> Price </th>
+          <th scope="col"> Actions </th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @cart_items.map do |item| %>
+          <tr>
+            <td scope="row"> <%= item[:name] %> </td>
+            <td> <%= item[:qty] %> </td>
+            <td> $ <%= item[:price] %> </td>
+            <td> $ <%= item[:qty] * item[:price] %> </td>
+            <td>
+              <%= form_with url: cart_path(item[:id]), method: :delete do %>
+                <%= image_submit_tag(asset_path("icons/delete.svg"),
+                                     class: "delete-btn",
+                                     data: { confirm: "Are you sure want to delete this item ?" }) %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
+
 </section>

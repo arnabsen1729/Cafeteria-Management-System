@@ -6,7 +6,10 @@ class CartController < ApplicationController
   end
 
   def index
+    @first_name = current_user.first_name
     @cart_items = Cart.get_items(session[:cart])
+    @total_items = Cart.count(session[:cart])
+    @total_price = Cart.get_price(@cart_items)
     render "cart/index"
   end
 

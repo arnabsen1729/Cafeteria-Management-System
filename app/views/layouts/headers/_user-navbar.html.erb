@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="<%= asset_path("icon.svg") %>" width="30" height="30" class="mx-2 d-inline-block align-top" alt="">
+    Cafeteria Management System
+  </a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOptions" aria-controls="navbarOptions" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbarOptions">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="/shop" class="nav-link waves-effect">
+          Shop
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/cart" class="nav-link navbar-link-2 waves-effect">
+          <span class="badge badge-pill badge-primary"><%= Cart.count(session[:cart]) %></span>
+          <img src="<%= asset_path("icons/cart.svg") %>" width="20" height="20" class="d-inline-block align-center" alt=""></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/shop" class="nav-link waves-effect">
+          <%= current_user.first_name %>
+        </a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign Out", destroy_session_path, method: :delete, class: "nav-link waves-effect" %>
+      </li>
+    </ul>
+  </div>
+</nav>

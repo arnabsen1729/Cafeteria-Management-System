@@ -16,7 +16,7 @@
       <% if current_user %>
         <li class="nav-item">
           <a href="#!" class="nav-link navbar-link-2 waves-effect">
-            <span class="badge badge-pill badge-primary">1</span>
+            <span class="badge badge-pill badge-primary"><%= Cart.count(session[:cart]) %></span>
             <img src="<%= asset_path("icons/cart.svg") %>" width="20" height="20" class="d-inline-block align-center" alt=""></i>
           </a>
         </li>

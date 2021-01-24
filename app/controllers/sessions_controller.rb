@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      redirect_to dashboard_path
+      redirect_to shop_path
     else
       flash[:error] = "Your login attempt failed"
       redirect_to new_session_path

@@ -1,10 +1,12 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
   <%= image_tag item.image, class: "card-img-top" %>
   <div class="card-body">
     <h5 class="card-title"> #<%= item.id %> <%= item.name %></h5>
     <p class="card-text"><%= item.description %></p>
     <p class="badge badge-light">Price: $ <%= item.price %></p>
     <br>
-    <a href="#" class="btn btn-danger btn-sm ml-auto">Remove</a>
+    <p class="btn btn-danger btn-sm ml-auto">
+      <span class="text-reset"><%= link_to "Remove", menuitem_path(item.id), method: :delete, class: "text-white text-decoration-none" %></span>
+    </p>
   </div>
 </div>

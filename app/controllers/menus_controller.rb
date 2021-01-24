@@ -37,4 +37,11 @@ class MenusController < ApplicationController
   def new
     render "menus/new"
   end
+
+  def active
+    active_menu_id = params[:menu_id]
+    Menu.where(is_active: true).map { |menu| menu.update(is_active: false) }
+    Menu.update(active_menu_id, is_active: true)
+    redirect_to menus_path
+  end
 end

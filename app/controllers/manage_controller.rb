@@ -5,10 +5,6 @@ class ManageController < ApplicationController
     render "manage/users"
   end
 
-  def menus
-    render "manage/menus"
-  end
-
   def reports
     render plain: "Manage report"
   end

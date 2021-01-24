@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="mt-5">
+    <div class="d-flex">
+      <h4 class="h4 mb-3 font-weight-normal">Menu Items </h4>
+    </div>
+    <div class="flex-wrap d-flex col-lg-12 justify-content-between">
+      <% @menu_items.map do |item| %>
+        <div class="col-lg-3 my-2">
+          <%= render partial: "item", locals: { item: item } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

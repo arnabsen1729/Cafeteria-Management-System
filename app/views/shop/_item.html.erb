@@ -1,0 +1,17 @@
+<div class="card">
+  <%= image_tag item.image, class: "card-img-top" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= item.name %></h5>
+    <p class="card-text"><%= item.description %></p>
+    <h5><span class="badge badge-light">Price: $ <%= item.price %></span></h5>
+    <br>
+    <div>
+      <%= form_with url: add_to_cart_path(item_id: item.id), method: :put, class: "d-flex justify-items-between" do |form| %>
+          <div class="text-muted mr-2">Qty:</div>
+          <%= number_field_tag :item_qty, nil, min: 1, max: 10, step: 1, class: "form-control form-control-sm", value: 1, oninput: "this.value|=0" %>
+          <%= form.submit "Add to Cart", class: "btn btn-primary btn-sm ml-2" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_action :ensure_logged_in
+  before_action :ensure_logged_in, :ensure_cart_available
 
   def ensure_logged_in
     unless current_user
       redirect_to "/"
     end
+  end
+
+  def ensure_cart_available
+    session[:cart] ||= []
   end
 
   def ensure_owner

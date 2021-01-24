@@ -1,0 +1,32 @@
+<section class="container mt-4 mb-2">
+  <div>
+    <table class="table text-center table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col"> Item Name </th>
+        <th scope="col"> Quantity </th>
+        <th scope="col"> Price per item </th>
+        <th scope="col"> Price </th>
+        <th scope="col"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.map do |item| %>
+        <tr>
+          <td scope="row"> <%= item[:name] %> </td>
+          <td> <%= item[:qty] %> </td>
+          <td> <%= item[:price] %> </td>
+          <td> <%= item[:qty] * item[:price] %> </td>
+          <td>
+            <%= form_with url: cart_path(item[:id]), method: :delete do %>
+              <%= image_submit_tag(asset_path("icons/delete.svg"),
+                                   class: "delete-btn",
+                                   data: { confirm: "Are you sure want to delete this item ?" }) %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</section>

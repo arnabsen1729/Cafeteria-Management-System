@@ -8,7 +8,7 @@
         <%= form.text_field :last_name, class: "form-control form-control-sm mx-1", placeholder: "Last Name" %>
         <%= form.email_field :email, class: "form-control form-control-sm mx-1", placeholder: "Email" %>
         <%= form.password_field :password, class: "form-control form-control-sm mx-1", placeholder: "Password" %>
-        <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], "clerk"), class: "form-select form-select-sm mx-1" %>
+        <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], "clerk"), class: "form-control form-control-sm mx-1" %>
         <div>
           <%= submit_tag "+ Add a new record", class: "btn btn-sm btn-success btn-block" %>
         </div>
@@ -38,12 +38,12 @@
             <td> <%= user.last_name %> </td>
             <td> <%= user.email %> </td>
             <td>
-              <%= form_with url: "/users/#{user.id}", method: :put do %>
-                <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], user.role), class: "form-select form-select-sm", onChange: "this.form.submit();" %>
+              <%= form_with url: user_path(user.id), method: :put do %>
+                <%= select_tag "role", options_for_select(["customer", "clerk", "owner"], user.role), class: "form-control form-control-sm", onChange: "this.form.submit();" %>
               <% end %>
             </td>
             <td class="text-center">
-              <%= form_with url: "/users/#{user.id}", method: :delete do %>
+              <%= form_with url: user_path(user.id), method: :delete do %>
                 <%= image_submit_tag(asset_path("icons/delete.svg"), class: "delete-btn", data: { confirm: "Are you sure want to delete this record ?" }) %>
               <% end %>
             </td>

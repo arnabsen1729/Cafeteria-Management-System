@@ -8,7 +8,27 @@
   <div>
     <h3 class="h3 mb-3 font-weight-normal">Menus </h3>
   </div>
-  <table class="table text-center">
+
+  <div class="my-4">
+    <%= form_with url: menus_path, method: :post do |form| %>
+      <div class="d-flex">
+        <%= form.text_field :name, class: "form-control form-control-sm mx-1", placeholder: "Menu Name" %>
+        <div class="mx-1">
+          <%= submit_tag "+ Add a new menu", class: "btn btn-sm btn-success btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex mb-2 align-intems-center">
+    <p class="text-muted mr-3">Select active menu:</p>
+    <div>
+      <%= form_with url: "/menus/active", method: :put do %>
+        <%= select_tag "menu_id", options_for_select(Menu.all_ids, Menu.active_menu_id), class: "form-control form-control-sm", onChange: "this.form.submit();" %>
+      <% end %>
+    </div>
+  </div>
+
+  <table class="table text-center table-hover">
     <thead class="table-dark">
       <tr>
         <th scope="col text-center"> Id </th>
@@ -18,18 +38,21 @@
       </tr>
     </thead>
     <tbody>
-      <% Menu.order(:name).map do |menu| %>
-        <tr>
+      <% Menu.order(:id).map do |menu| %>
+        <tr class="<%= "table-success" if menu.is_active %>">
           <td scope="row"> <%= menu.id %> </td>
           <td> <%= menu.name %> </td>
           <td> <%= menu.menu_items.count %> </td>
           <td>
             <%= form_with url: menu_path(menu.id), method: :delete do %>
               <a class="mr-3" href="<%= menu_path(menu.id) %>"><img src=<%= asset_path("icons/edit.svg") %> class="edit-btn" alt="Edit"></a>
-              <%= image_submit_tag(asset_path("icons/delete.svg"), class: "delete-btn", data: { confirm: "Are you sure want to delete this record ?" }) %>
+              <%= image_submit_tag(asset_path("icons/delete.svg"),
+                                   disabled: menu.is_active,
+                                   class: "delete-btn",
+                                   data: { confirm: "Are you sure want to delete this record ?" }) %>
             <% end %>
           </td>
-      </tr>
+        </tr>
       <% end %>
     </tbody>
   </table>

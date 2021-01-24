@@ -7,7 +7,11 @@
 </nav>
 <section class="container mt-5 mb-5">
   <div>
+    <% if @menu.is_active %>
+      <span class="badge badge-warning">Active Menu</span>
+    <% end %>
     <h3 class="h3 mb-3 font-weight-normal">Menu Id: <%= @menu.id %> </h3>
+
   </div>
   <div class="mt-2">
     <%= form_with url: menu_path(@menu.id), method: :put, class: "d-flex align-items-center" do |form| %>
@@ -28,9 +32,9 @@
       <h4 class="h4 mb-3 font-weight-normal">Menu Items </h4>
       <h5><%= link_to "+ Add Items", new_menuitem_path(id: @menu.id), class: "my-1 ml-3 badge badge-pill badge-success" %></h5>
     </div>
-    <div class="d-flex col-lg-12 justify-item">
+    <div class="flex-wrap d-flex col-lg-12 justify-content-between">
       <% @menu.menu_items.all.map do |item| %>
-        <div class="col-lg-4 mx-2 my-2">
+        <div class="col-lg-3 my-2">
           <%= render partial: "itemcard", locals: { item: item } %>
         </div>
       <% end %>

@@ -16,12 +16,29 @@
       </div>
     <% end %>
   </div>
+
+  <div class="col-lg-4">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <td> <strong>Total Orders</strong> </th>
+          <td> <%= orders.count %> </th>
+        </tr>
+        <tr>
+          <td><strong>Total Price</strong> </th>
+          <td> $ <%= total_price %> </th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+
   <table class="table text-center table-hover">
     <thead class="table-dark">
       <tr>
         <th scope="col"> Order Id </th>
         <th scope="col"> User Name </th>
-        <th scope="col"> Total Price </th>
+        <th scope="col"> Price </th>
         <th scope="col"> Order Date </th>
         <th scope="col"> Delivery Date </th>
       </tr>

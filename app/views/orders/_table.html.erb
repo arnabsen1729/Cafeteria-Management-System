@@ -1,0 +1,36 @@
+<section>
+  <table class="table text-center table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col"> Order Id </th>
+        <th scope="col"> User Name </th>
+        <th scope="col"> Total Price </th>
+        <th scope="col"> Order Date </th>
+        <% if not delivered %>
+          <th scope="col"> Actions </th>
+        <% else %>
+        <th scope="col"> Delivery Date </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.map do |order| %>
+        <tr>
+          <td scope="row"><%= link_to order.id, order_path(order.id), class: "text-reset text-decoration-none" %></td>
+          <td> <%= order.get_userfullname %></td>
+          <td> <%= order.get_price %></td>
+          <td> <%= Date.parse(order.date.to_s).iso8601 %></td>
+          <% if not delivered %>
+            <td scope="col">
+            <p class="ml-auto">
+              <span class="badge badge-pill badge-primary"><%= link_to "Mark Delivered", order_path(order.id), method: :put, class: "text-white text-decoration-none" %></span>
+            </p>
+            </td>
+          <% else %>
+            <td scope="col"> <%= Date.parse(order.delivered_at.to_s).iso8601 %> </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

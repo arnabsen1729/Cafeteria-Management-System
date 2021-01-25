@@ -17,7 +17,7 @@
       <% if @current_user.role == "owner" %>
         <%= render :partial => "layouts/headers/admin-navbar", :locals => { :current_user => @current_user } %>
       <% elsif @current_user.role == "clerk" %>
-        <%= render :partial => "layouts/headers/navbar", :locals => { :current_user => @current_user } %>
+        <%= render :partial => "layouts/headers/clerk-navbar", :locals => { :current_user => @current_user } %>
       <% else %>
         <%= render :partial => "layouts/headers/user-navbar", :locals => { :current_user => @current_user } %>
       <% end %>
@@ -29,7 +29,23 @@
     <div class="text-center">
       <% if flash[:error] %>
         <div class="mt-2 mx-auto col-lg-4 alert alert-danger alert-dismissible fade show" role="alert">
-          <strong>Oops !!</strong> <%= flash[:error] %>
+          <strong>Error: </strong> <%= flash[:error] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+      <% if flash[:success] %>
+        <div class="mt-2 mx-auto col-lg-4 alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success</strong> <%= flash[:success] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+      <% if flash[:info] %>
+        <div class="mt-2 mx-auto col-lg-4 alert alert-info alert-dismissible fade show" role="alert">
+          <strong>Sorry</strong> <%= flash[:info] %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

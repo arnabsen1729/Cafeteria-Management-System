@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(first_name: "admin", last_name: "admin", email: "admin@admin.com", password: "admin", role: "owner")
+User.create!(first_name: "admin", last_name: "clerk", email: "clerk@clerk.com", password: "clerk", role: "clerk")
+User.create!(first_name: "Walk-In-Customer", last_name: "", email: "cust@cust.com", password: "clerk", role: "customer")
+Menu.create!(name: "Default Menu", is_active: true)

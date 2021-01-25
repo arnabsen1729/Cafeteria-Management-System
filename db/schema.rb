@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_180501) do
     t.bigint "order_id"
     t.bigint "menu_item_id"
     t.string "menu_item_name"
+    t.integer "menu_item_qty"
     t.float "menu_item_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

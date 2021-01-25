@@ -20,8 +20,13 @@ Rails.application.routes.draw do
 
   post "/users/add" => "users#add", as: :add_user
 
+  #reports
+  get "/reports" => "reports#index", as: :reports
+  get "/reports/user/:id" => "reports#user", as: :user_report
+
   resources :cart
   resources :users
   resources :menuitems
   resources :menus
+  resources :orders
 end

@@ -14,22 +14,19 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/manage/users" class="nav-link waves-effect">
-          Users
+        <a href="/cart" class="nav-link navbar-link-2 waves-effect">
+          <span class="badge badge-pill badge-primary"><%= Cart.count(session[:cart]) %></span>
+          <img src="<%= asset_path("icons/cart.svg") %>" width="20" height="20" class="d-inline-block align-center" alt=""></i>
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Menu
+      <li class="nav-item">
+        <a href="/orders" class="nav-link waves-effect">
+          Orders
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/menus">Menus Dashboard</a>
-          <a class="dropdown-item" href="/menuitems/new">Add Menu Item</a>
-        </div>
       </li>
       <li class="nav-item">
         <a href="/" class="nav-link waves-effect">
-          <%= current_user.first_name %> (owner)
+          <%= current_user.first_name %> (clerk)
         </a>
       </li>
       <li class="nav-item">

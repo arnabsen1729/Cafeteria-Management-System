@@ -1,0 +1,19 @@
+<section class="container">
+  <div>
+    <h3 class="h3">Orders</h3>
+    <div>
+      <h5 class="h5">Pending Orders</h5>
+      <div>
+        <%= render partial: "table", locals: { orders: @pending_orders, delivered: false } %>
+      </div>
+    </div>
+    <div>
+      <h5 class="h5">Completed Orders</h5>
+      <div>
+        <%= render partial: "table", locals: { orders: @delivered_orders, delivered: true } %>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</section>

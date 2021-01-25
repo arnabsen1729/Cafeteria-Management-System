@@ -1,0 +1,59 @@
+<section class="container mt-4 mb-2">
+  <h3>Order Id: <%= @order.id %></h3>
+  <div class="col-lg-4 mx-auto text-center">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row">Order Id </th>
+          <td> <%= @order.id %> </th>
+        </tr>
+        <tr>
+          <th scope="row">Order Date </th>
+          <td> <%= Date.parse(@order.date.to_s).iso8601 %> </th>
+        </tr>
+        <tr>
+          <th scope="row">Customer Name </th>
+          <td> <%= @user.get_fullname %> </th>
+        </tr>
+        <tr>
+          <th scope="row">Customer Email </th>
+          <td> <%= @user.email %> </th>
+        </tr>
+        <tr class="bg-success text-white">
+          <th scope="row">Total Price</td>
+          <td>$ <%= @order.get_price %></td>
+        </tr>
+      </thead>
+
+    </table>
+    <% if @order.delivered_at == nil %>
+      <p class="btn btn-primary btn-md ml-auto">
+        <span class="text-reset text-decoration-none"><%= link_to "Mark Delivered", order_path(@order.id), method: :put, class: "text-white text-decoration-none" %></span>
+      </p>
+    <% end %>
+  </div>
+  <h4>Order Items :</h4>
+  <div>
+    <table class="table text-center table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col"> Item Name </th>
+          <th scope="col"> Quantity </th>
+          <th scope="col"> Price per item </th>
+          <th scope="col"> Price </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.order_items.map do |item| %>
+          <tr>
+            <td scope="row"> <%= item[:menu_item_name] %> </td>
+            <td> <%= item[:menu_item_qty] %> </td>
+            <td> $ <%= item[:menu_item_price] %> </td>
+            <td> $ <%= item[:menu_item_qty] * item[:menu_item_price] %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</section>

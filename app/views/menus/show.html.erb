@@ -1,5 +1,5 @@
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
+  <ol class="breadcrumb shadow-sm">
     <li class="breadcrumb-item"><%= link_to "Admin", "/" %></li>
     <li class="breadcrumb-item"><%= link_to "Menus", menus_path %></li>
     <li class="breadcrumb-item active" aria-current="page">Menu Id <%= @menu.id %></li>
@@ -32,9 +32,9 @@
       <h4 class="h4 mb-3 font-weight-normal">Menu Items </h4>
       <h5><%= link_to "+ Add Items", new_menuitem_path(id: @menu.id), class: "my-1 ml-3 badge badge-pill badge-success" %></h5>
     </div>
-    <div class="flex-wrap d-flex col-lg-12 justify-content-between">
+    <div class="flex-wrap d-flex col-lg-12">
       <% @menu.menu_items.all.map do |item| %>
-        <div class="col-lg-3 my-2">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
           <%= render partial: "itemcard", locals: { item: item } %>
         </div>
       <% end %>

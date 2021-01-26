@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
       new_order_id = Order.create!(new_order).id
       Order.add_items(cart_items, new_order_id)
       session[:cart] = nil
-      flash[:success] = "Your Order was placed successfully!! Order Id: #{new_order_id}"
+      flash[:success] = "Your Order was placed successfully !! Order Id: #{new_order_id}"
       redirect_to shop_path
     end
   end

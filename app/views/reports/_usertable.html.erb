@@ -1,6 +1,6 @@
 <section>
   <div class="mb-3">
-    <%= form_with url: reports_path, method: :get do |form| %>
+    <%= form_with url: user_report_path(user.id), method: :get do |form| %>
       <div class="d-flex mt-2 mb-2">
         <div class="d-flex align-items-center mx-2">
           <div class="mx-1 text-muted">From </div>
@@ -21,6 +21,14 @@
     <table class="table text-center">
       <thead>
         <tr>
+          <td><strong>Username</strong> </th>
+          <td><%= user.get_fullname %> </th>
+        </tr>
+        <tr>
+          <td><strong>Email</strong> </th>
+          <td><%= user.email %> </th>
+        </tr>
+        <tr>
           <td> <strong>Total Orders</strong> </th>
           <td> <%= orders.count %> </th>
         </tr>
@@ -28,6 +36,7 @@
           <td><strong>Total Price</strong> </th>
           <td> $ <%= total_price %> </th>
         </tr>
+
       </thead>
     </table>
   </div>
@@ -37,7 +46,6 @@
     <thead class="table-dark">
       <tr>
         <th scope="col"> Order Id </th>
-        <th scope="col"> User Name </th>
         <th scope="col"> Price </th>
         <th scope="col"> Order Date </th>
         <th scope="col"> Delivery Date </th>
@@ -47,7 +55,6 @@
       <% orders.map do |order| %>
         <tr>
           <td scope="row"><%= link_to order.id, order_path(order.id), class: "text-reset text-decoration-none" %></td>
-          <td><%= link_to order.get_userfullname, user_report_path(order.user_id), class: "text-reset text-decoration-none" %></td>
           <td> $ <%= order.get_price %></td>
           <td> <%= Date.parse(order.date.to_s).iso8601 %></td>
           <td scope="col"> <%= Date.parse(order.delivered_at.to_s).iso8601 %> </td>

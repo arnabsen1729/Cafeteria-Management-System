@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CafeteriaMs</title>
+    <title>Cafeteria Management System</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,20 +13,22 @@
   <body>
 
     <% # Navbar %>
-    <% if @current_user %>
-      <% if @current_user.role == "owner" %>
-        <%= render :partial => "layouts/headers/admin-navbar", :locals => { :current_user => @current_user } %>
-      <% elsif @current_user.role == "clerk" %>
-        <%= render :partial => "layouts/headers/clerk-navbar", :locals => { :current_user => @current_user } %>
+    <div class="shadow-md rounded">
+      <% if @current_user %>
+        <% if @current_user.role == "owner" %>
+          <%= render :partial => "layouts/headers/admin-navbar", :locals => { :current_user => @current_user } %>
+        <% elsif @current_user.role == "clerk" %>
+          <%= render :partial => "layouts/headers/clerk-navbar", :locals => { :current_user => @current_user } %>
+        <% else %>
+          <%= render :partial => "layouts/headers/user-navbar", :locals => { :current_user => @current_user } %>
+        <% end %>
       <% else %>
-        <%= render :partial => "layouts/headers/user-navbar", :locals => { :current_user => @current_user } %>
+        <%= render :partial => "layouts/headers/navbar" %>
       <% end %>
-    <% else %>
-      <%= render :partial => "layouts/headers/navbar" %>
-    <% end %>
+    </div>
 
 
-    <div class="text-center">
+    <div class="text-center alerts">
       <% if flash[:error] %>
         <div class="mt-2 mx-auto col-lg-4 alert alert-danger alert-dismissible fade show" role="alert">
           <strong>Error: </strong> <%= flash[:error] %>

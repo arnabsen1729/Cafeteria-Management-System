@@ -1,4 +1,17 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb shadow-sm">
+    <li class="breadcrumb-item"><%= link_to "Admin", "/" %></li>
+    <li class="breadcrumb-item"><%= link_to "Reports", "/reports" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Order</li>
+  </ol>
+</nav>
+
 <section class="container mt-4 mb-2">
+  <% if @order.delivered_at %>
+    <span class="badge badge-success">Delivered</span>
+  <% else %>
+    <span class="badge badge-danger">Not Delivered</span>
+  <% end %>
   <h3>Order Id: <%= @order.id %></h3>
   <div class="col-lg-4 mx-auto text-center">
     <table class="table">
@@ -11,6 +24,12 @@
           <th scope="row">Order Date </th>
           <td> <%= Date.parse(@order.date.to_s).iso8601 %> </th>
         </tr>
+        <% if @order.delivered_at %>
+          <tr>
+            <th scope="row">Delivery Date </th>
+            <td> <%= Date.parse(@order.delivered_at.to_s).iso8601 %> </th>
+          </tr>
+        <% end %>
         <tr>
           <th scope="row">Customer Name </th>
           <td> <%= @user.get_fullname %> </th>

@@ -1,7 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb shadow-sm">
+    <li class="breadcrumb-item"><%= link_to "Admin", "/" %></li>
+    <li class="breadcrumb-item active" aria-current="page">Reports</li>
+  </ol>
+</nav>
 <section class="container">
   <div>
-    <h3 class="h3">Reports</h3>
-    <div>
+    <h3 class="h3 mt-2 mb-3">Reports</h3>
+    <div class="mt-2 mb-3">
       <div>
         <%= render partial: "table", locals: { orders: @orders, from_date: @from_date, to_date: @to_date, total_price: @total_price } %>
       </div>

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      role: "customer",
+      role: params[:role] || "customer",
     )
     if new_user.save
       session[:current_user_id] = new_user.id
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
-      role: "customer",
+      role: params[:role] || "customer",
     )
     if new_user.save
       redirect_to manage_users_path

@@ -45,7 +45,9 @@ This is a cafeteria management system. The features impleted were:
 
 ## Deployed App
 
-Heroku App: https://cafeteria-management-system.herokuapp.com/
+VPS App: http://52.87.229.223/   [Active Storage is persistent]
+
+Heroku App: https://cafeteria-management-system.herokuapp.com/ [Active Storage is not persistent]
 
 **Admin Credentials**
 
